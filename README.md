@@ -10,22 +10,26 @@
 ## Project Setup
 
 1. Bring up all docker containers and verify everything works.
-1. Run the script `scripts/create_passwords.sh` to generate the `.env.prod` file containing production credentials for the database.
-1. Enable ssh port forwarding so that local computer can connect to the running flask app.
-1. Run the script:
+1. Running the `scripts/create_passwords.sh` script generates a `.env.prod` file containing production credentials for the database.
+1. Enabling ssh port forwarding allows the local computer to connect to the running flask app.
+1. Running the script:
+
    ```
    $ sh scripts/check_web_endpoints.sh
    ```
-   to perform automated integration checks to ensure the system is running correctly.
+   
+   performs automated integration checks to ensure the system is running correctly.
    
 ## Loading Data
 
 1. Visit <https://commoncrawl.org/the-data/get-started/>
 1. Find the url of a WARC file.
 1. Run the command
+
    ```
    $ ./downloader_warc.sh $URL
    ```
+   
    where `$URL` is the url to the selected WARC file.
    This command will spawn a docker container that downloads the WARC file and inserts it into the database.
 1. These steps were repeated 5 times for 5 different WARC files, each from different years.
@@ -42,6 +46,8 @@ Every time a web search on this website is made, several sql queries are run. Wi
 CREATE INDEX ON metahtml USING rum(content);
 ```
     
+## Results 
+
 This query shows the total number of webpages loaded:
 
 ```
