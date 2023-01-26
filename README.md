@@ -38,9 +38,9 @@ The solution is to implement and run a `downloader_host` service for downloading
 
 Every time a web search on this website is made, several sql queries are run. Without an index to speed up the query, it will use a sequential scan and the runtime will be linear in the amount of data searched. This is quite burdensome. To solve this issue, the following RUM index was created to speed up the `@@` operator:
 
-    ```
-    CREATE INDEX ON metahtml USING rum(content);
-    ```
+```
+CREATE INDEX ON metahtml USING rum(content);
+```
     
 1. This query shows the total number of webpages loaded:
 
@@ -53,16 +53,16 @@ count
 (1 row)
 ```
        
-    1. This query shows the number of webpages loaded / hour:
-       ```
-       select * from metahtml_rollup_insert order by insert_hour desc limit 100;
-       
-         hll_count |  url   | hostpathquery | hostpath |  host  |      insert_hour       
-        -----------+--------+---------------+----------+--------+------------------------
-                 1 |  15902 |         15512 |    14814 |  10135 | 2022-05-06 20:00:00+00
-                 5 | 222697 |        208619 |   199718 | 174491 | 2022-05-06 19:00:00+00
-        (2 rows)
-       ```
+ 1. This query shows the number of webpages loaded / hour:
+    ```
+    select * from metahtml_rollup_insert order by insert_hour desc limit 100;
+
+      hll_count |  url   | hostpathquery | hostpath |  host  |      insert_hour       
+     -----------+--------+---------------+----------+--------+------------------------
+              1 |  15902 |         15512 |    14814 |  10135 | 2022-05-06 20:00:00+00
+              5 | 222697 |        208619 |   199718 | 174491 | 2022-05-06 19:00:00+00
+     (2 rows)
+    ```
        
     1. This query shows the hostnames that you have downloaded the most webpages from:
        ```
