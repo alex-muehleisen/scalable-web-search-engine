@@ -1,0 +1,26 @@
+services:
+  nginx:
+    build: ./services/nginx
+    volumes:
+      - static_volume:/home/app/web/project/static
+    ports:
+      - 80:80
+    depends_on:
+      - web
+  web:
+    build: ./services/web
+    volumes:
+      - static_volume:/home/app/web/project/static
+    command: gunicorn --bind 0.0.0.0:5000 manage:app
+    ports:
+        - 5000
+    env_file:
+      - ./.env.prod
+    environment:
+      - APP_FOLDER=/home/app/web
+      - FLASK_APP=project/__init__.py
+    depends_on:
+      - db
+
+volumes:
+  static_volume:
