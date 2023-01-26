@@ -45,7 +45,6 @@ Every time a web search on this website is made, several sql queries are run. Wi
 ```
 CREATE INDEX ON metahtml USING rum(content);
 ```
-    
 ## Results 
 
 This query shows the total number of webpages loaded:
