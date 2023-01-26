@@ -1,11 +1,13 @@
 # Creating a Highly Scalable Web-search Engine
 
+
 **Skills:**
 1. Working with a moderately large software project
 1. Parallelizing data analysis work
 1. Work with WARC files and the multi-petabyte common crawl dataset
 1. Indexes and rollup tables familiarity for speeding up queries
 1. Debugging database performance problems
+
 
 ## Project Setup
 
@@ -19,6 +21,7 @@
    ```
    
    performs automated integration checks to ensure the system is running correctly.
+   
    
 ## Loading Data
 
@@ -38,6 +41,7 @@ The `downloader_warc` service downloads many urls quickly but they are mostly lo
 For example, most URLs do not include the date they were published, so their contents will not be reflected in the ngrams graph.
 The solution is to implement and run a `downloader_host` service for downloading high quality urls, which can be seen here in the `services/downloader_host/downloader_host.py` script.
 
+
 ## Speeding up the Webpage
 
 Every time a web search on this website is made, several sql queries are run. Without an index to speed up the query, it will use a sequential scan and the runtime will be linear in the amount of data searched. This is quite burdensome. To solve this issue, the following RUM index was created to speed up the `@@` operator:
@@ -45,6 +49,7 @@ Every time a web search on this website is made, several sql queries are run. Wi
 ```
 CREATE INDEX ON metahtml USING rum(content);
 ```
+
 ## Results 
 
 This query shows the total number of webpages loaded:
