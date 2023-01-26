@@ -1,2 +1,2 @@
-# Creating a Highly-scalable Web-search Engine
+# Creating a Highly Scalable Web-search Engine
 
