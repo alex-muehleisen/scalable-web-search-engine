@@ -42,15 +42,16 @@ Every time a web search on this website is made, several sql queries are run. Wi
     CREATE INDEX ON metahtml USING rum(content);
     ```
     
-    1. This query shows the total number of webpages loaded:
-       ```
-       select count(*) from metahtml;
-       
-         count  
-        --------
-         231922
-        (1 row)
-       ```
+1. This query shows the total number of webpages loaded:
+
+```
+select count(*) from metahtml;
+
+count  
+--------
+231922
+(1 row)
+```
        
     1. This query shows the number of webpages loaded / hour:
        ```
