@@ -173,6 +173,6 @@ Every time a web search on this website is made, several sql queries are run. Wi
        ```
        
        
-An example search result is included below. The time search engine time can be seen in the bottom-left.
+An example search result is included below. The search engine render time can be seen in the bottom-left.
 
 <img src='search_engine_screenshot.png' />
