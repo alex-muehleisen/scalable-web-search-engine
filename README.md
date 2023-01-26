@@ -26,7 +26,7 @@
    ```
    $ ./downloader_warc.sh $URL
    ```
-   where `$URL` is the url to your selected WARC file.
+   where `$URL` is the url to the selected WARC file.
    This command will spawn a docker container that downloads the WARC file and inserts it into the database.
 1. These steps were repeated 5 times for 5 different WARC files, each from different years.
 
@@ -64,7 +64,7 @@ This query shows the number of webpages loaded / hour:
   (2 rows)
  ```
        
-This query shows the hostnames that you have downloaded the most webpages from:
+This query shows the hostnames that had the most webpages downloaded from:
 ```
 select * from metahtml_rollup_host order by hostpath desc limit 100;
 
