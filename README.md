@@ -1,6 +1,5 @@
 # Creating a Highly Scalable Web-search Engine
 
-
 **Skills:**
 1. Working with a moderately large software project
 1. Parallelizing data analysis work
